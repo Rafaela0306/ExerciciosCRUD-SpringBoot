@@ -1,27 +1,28 @@
 package com.tc.lista.Service;
 
-import com.tc.lista.Repository.ClienteRepository;
+import com.tc.lista.Model.Autor;
+import com.tc.lista.Repository.AutorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.tc.lista.Model.Cliente;
+
 
 import java.util.List;
 
 @Service
-public class ClienteService {
+public class AutorService {
 
     @Autowired
-    private ClienteRepository repository;
+    private AutorRepository repository;
 
-    public Cliente salvar(Cliente cliente) {
-        return repository.save(cliente);
+    public Autor salvar(Autor autor) {
+        return repository.save(autor);
     }
 
-    public List<Cliente> listar() {
+    public List<Autor> listar() {
         return repository.findAll();
     }
 
-    public Cliente buscarPorId(Long id) {
+    public Autor buscarPorId(Long id) {
         return repository.findById(id).orElse(null);
     }
 
