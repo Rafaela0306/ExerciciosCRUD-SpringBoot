@@ -1,32 +1,31 @@
 package com.tc.lista.Controller;
 
-import com.tc.lista.Model.Fornecedores;
+import com.tc.lista.Model.Projeto;
+import com.tc.lista.Service.ProjetoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.tc.lista.Service.FornecedorService;
-
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/fornecedores")
-public class FornecedorController {
+@RequestMapping("/projetos")
+public class ProjetoController {
 
     @Autowired
-    private FornecedorService service;
+    private ProjetoService service;
 
     @PostMapping
-    public Fornecedores criar(@RequestBody Fornecedores fornecedor) {
-        return service.salvar(fornecedor);
+    public Projeto criar(@RequestBody Projeto projeto) {
+        return service.salvar(projeto);
     }
 
     @GetMapping
-    public List<Fornecedores> listar() {
+    public List<Projeto> listar() {
         return service.listar();
     }
 
     @GetMapping("/{id}")
-    public Fornecedores buscar(@PathVariable Long id) {
+    public Projeto buscar(@PathVariable Long id) {
         return service.buscarPorId(id);
     }
 
