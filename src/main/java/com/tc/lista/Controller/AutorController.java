@@ -1,32 +1,31 @@
 package com.tc.lista.Controller;
 
-import com.tc.lista.Service.ClienteService;
+import com.tc.lista.Model.Autor;
+import com.tc.lista.Service.AutorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.tc.lista.Model.Cliente;
-
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/clientes")
-public class ClienteController {
+@RequestMapping("/autores")
+public class AutorController {
 
     @Autowired
-    private ClienteService service;
+    private AutorService service;
 
     @PostMapping
-    public Cliente criar(@RequestBody Cliente cliente) {
-        return service.salvar(cliente);
+    public Autor criar(@RequestBody Autor autor) {
+        return service.salvar(autor);
     }
 
     @GetMapping
-    public List<Cliente> listar() {
+    public List<Autor> listar() {
         return service.listar();
     }
 
     @GetMapping("/{id}")
-    public Cliente buscar(@PathVariable Long id) {
+    public Autor buscar(@PathVariable Long id) {
         return service.buscarPorId(id);
     }
 
