@@ -1,28 +1,28 @@
 package com.tc.lista.Service;
 
-import com.tc.lista.Model.Fornecedores;
+import com.tc.lista.Model.Livro;
+import com.tc.lista.Repository.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.tc.lista.Repository.FornecedoresRepository;
 
 
 import java.util.List;
 
 @Service
-public class FornecedorService {
+public class LivroService {
 
     @Autowired
-    private FornecedoresRepository repository;
+    private LivroRepository repository;
 
-    public Fornecedores salvar(Fornecedores fornecedor) {
-        return repository.save(fornecedor);
+    public Livro salvar(Livro livro) {
+        return repository.save(livro);
     }
 
-    public List<Fornecedores> listar() {
+    public List<Livro> listar() {
         return repository.findAll();
     }
 
-    public Fornecedores buscarPorId(Long id) {
+    public Livro buscarPorId(Long id) {
         return repository.findById(id).orElse(null);
     }
 
